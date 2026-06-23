@@ -13,7 +13,21 @@ def criar_marca(nome):
     conn.close()
 
 
-#def listar_marcas():
+def listar_marcas():
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT id, nome
+        FROM marca
+    """)
+
+    dados = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return dados
 
 
 
